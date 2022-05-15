@@ -1,0 +1,6 @@
+jupyter-book
+matplotlib
+pandas
+sphinxcontrib-mermaid
+git+https://github.com/sscu-budapest/datazimmer
+aswan

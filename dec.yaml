@@ -1,0 +1,14 @@
+remote: sscub-public-explorer-tutorial
+cc_checkout: tutorial
+datasets:
+  - name: Covid Victims
+    project: dabble
+    namespace: covid_patients
+    tables: 
+      - covid_victim
+    env: complete
+  - name: Hungarian Elections
+    project: elections
+    namespace: hungarian
+    minimal: true
+    env: complete
