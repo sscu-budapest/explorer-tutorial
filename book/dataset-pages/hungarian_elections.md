@@ -11,54 +11,47 @@
 ```{mermaid}
 erDiagram
   affiliation {    
-    VARCHAR party__pid FK     
-    VARCHAR org__nid FK 
-  }
-  party {    
-    VARCHAR pid PK 
+    VARCHAR party      
+    VARCHAR organization FK 
   }
   nominating_organization {    
     VARCHAR nid PK 
   }
-  candidate {    
-    VARCHAR cid PK 
-  }
   district_hierarchy {    
-    VARCHAR parent__gid FK     
-    VARCHAR child__gid FK 
+    VARCHAR parent FK     
+    VARCHAR child FK 
   }
   geographical_unit {    
     VARCHAR name      
     VARCHAR level_info      
-    VARCHAR gid PK 
+    VARCHAR unit_id PK 
   }
   election {    
     BOOLEAN is_individual      
     DATETIME start_date      
-    VARCHAR eid PK 
+    VARCHAR election_id PK 
   }
   election_precinct {    
     VARCHAR name      
     VARCHAR geo_info      
     FLOAT eligible_voters      
     BOOLEAN external_votes      
-    VARCHAR geo_parent__gid FK     
-    VARCHAR election__eid FK     
-    VARCHAR pid PK 
+    VARCHAR geo_unit_id FK     
+    VARCHAR election_id FK     
+    VARCHAR precinct_id PK 
   }
   vote_record {    
     INTEGER vote_count      
-    VARCHAR org__nid FK     
-    VARCHAR precinct__pid FK     
+    VARCHAR organization FK     
+    VARCHAR precinct_id FK     
     VARCHAR vid PK 
   }
-  affiliation ||--|{ party : "party__pid -> pid"
-  affiliation ||--|{ nominating_organization : "org__nid -> nid"
-  district_hierarchy ||--|{ geographical_unit : "child__gid -> gid; parent__gid -> gid"
-  election_precinct ||--|{ geographical_unit : "geo_parent__gid -> gid"
-  election_precinct ||--|{ election : "election__eid -> eid"
-  vote_record ||--|{ election_precinct : "precinct__pid -> pid"
-  vote_record ||--|{ nominating_organization : "org__nid -> nid"
+  affiliation ||--|{ nominating_organization : "organization -> nid"
+  district_hierarchy ||--|{ geographical_unit : "child -> unit_id; parent -> unit_id"
+  election_precinct ||--|{ election : "election_id -> election_id"
+  election_precinct ||--|{ geographical_unit : "geo_unit_id -> unit_id"
+  vote_record ||--|{ nominating_organization : "organization -> nid"
+  vote_record ||--|{ election_precinct : "precinct_id -> precinct_id"
 ```
 
 
@@ -68,7 +61,7 @@ erDiagram
 
 ## Tables
 
-> There are 9 tables
+> There are 7 tables
 
 
 
@@ -100,43 +93,6 @@ erDiagram
 ```{div} col-3
 
  <a href="https://s3.eu-de.cloud-object-storage.appdomain.cloud/sscub-public-explorer-tutorial/hungarian_elections/affiliation-profile.html">{badge}`Open Table Profile,badge-success`</a>
-
-```
-
-::::
-
-:::::
-
-
-
-
-:::::{panels} :column: col-12
-
-::::{div} row
-
-```{div} col-9
-**Candidate Table**
-```
-
-```{div} col-3
- <a href="https://s3.eu-de.cloud-object-storage.appdomain.cloud/sscub-public-explorer-tutorial/hungarian_elections/candidate.csv">{badge}`Download CSV,badge-primary`</a>
-```
-::::
-
-^^^
-::::{div} row
-
-```{div} col-4
-**Size**: 0 × 1 (0.01 kB)
-```
-
-```{div} col-5
-**Last Changed**: 2022-05-15 20:02
-```
-
-```{div} col-3
-
- <a href="https://s3.eu-de.cloud-object-storage.appdomain.cloud/sscub-public-explorer-tutorial/hungarian_elections/candidate-profile.html">{badge}`Open Table Profile,badge-success`</a>
 
 ```
 
@@ -285,43 +241,6 @@ erDiagram
 ```{div} col-3
 
  <a href="https://s3.eu-de.cloud-object-storage.appdomain.cloud/sscub-public-explorer-tutorial/hungarian_elections/geographical_unit-profile.html">{badge}`Open Table Profile,badge-success`</a>
-
-```
-
-::::
-
-:::::
-
-
-
-
-:::::{panels} :column: col-12
-
-::::{div} row
-
-```{div} col-9
-**Party Table**
-```
-
-```{div} col-3
- <a href="https://s3.eu-de.cloud-object-storage.appdomain.cloud/sscub-public-explorer-tutorial/hungarian_elections/party.csv">{badge}`Download CSV,badge-primary`</a>
-```
-::::
-
-^^^
-::::{div} row
-
-```{div} col-4
-**Size**: 206 × 1 (2.66 kB)
-```
-
-```{div} col-5
-**Last Changed**: 2022-05-15 20:02
-```
-
-```{div} col-3
-
- <a href="https://s3.eu-de.cloud-object-storage.appdomain.cloud/sscub-public-explorer-tutorial/hungarian_elections/party-profile.html">{badge}`Open Table Profile,badge-success`</a>
 
 ```
 

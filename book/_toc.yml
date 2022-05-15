@@ -19,9 +19,6 @@ chapters:
   - url: https://s3.eu-de.cloud-object-storage.appdomain.cloud/sscub-public-explorer-tutorial/hungarian_elections/affiliation-profile.html
     title: Affiliation Table Profile
 
-  - url: https://s3.eu-de.cloud-object-storage.appdomain.cloud/sscub-public-explorer-tutorial/hungarian_elections/candidate-profile.html
-    title: Candidate Table Profile
-
   - url: https://s3.eu-de.cloud-object-storage.appdomain.cloud/sscub-public-explorer-tutorial/hungarian_elections/nominating_organization-profile.html
     title: Nominating Organization Table Profile
 
@@ -33,9 +30,6 @@ chapters:
 
   - url: https://s3.eu-de.cloud-object-storage.appdomain.cloud/sscub-public-explorer-tutorial/hungarian_elections/geographical_unit-profile.html
     title: Geographical Unit Table Profile
-
-  - url: https://s3.eu-de.cloud-object-storage.appdomain.cloud/sscub-public-explorer-tutorial/hungarian_elections/party-profile.html
-    title: Party Table Profile
 
   - url: https://s3.eu-de.cloud-object-storage.appdomain.cloud/sscub-public-explorer-tutorial/hungarian_elections/election_precinct-profile.html
     title: Election Precinct Table Profile
